@@ -1,6 +1,7 @@
 package dev.peertosir.techtasksimbsoft.domain;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Word {
@@ -55,5 +56,20 @@ public class Word {
 
     public History getHistory() {
         return history;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Word word = (Word) o;
+
+        return Objects.equals(id, word.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

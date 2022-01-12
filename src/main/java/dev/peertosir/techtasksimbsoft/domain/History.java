@@ -2,6 +2,7 @@ package dev.peertosir.techtasksimbsoft.domain;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 public class History {
@@ -44,6 +45,21 @@ public class History {
 
     public void setParseTime(Instant parseTime) {
         this.parseTime = parseTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        History history = (History) o;
+
+        return Objects.equals(id, history.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }
 
