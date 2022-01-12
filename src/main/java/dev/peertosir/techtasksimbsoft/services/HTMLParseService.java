@@ -8,10 +8,6 @@ import java.util.Map;
 
 public interface HTMLParseService {
 
-    String[] getWordsFromHtml(String url) throws IOException;
-
-    Map<String, Long> getWordsFrequencyFromHtml(String url) throws IOException;
-
     static void checkUrl(String url) throws UrlNotValidException {
         String[] schemes = {"http", "https"};
         UrlValidator urlValidator = new UrlValidator(schemes);
@@ -20,4 +16,8 @@ public interface HTMLParseService {
             throw new UrlNotValidException("Provided URL is not valid");
         }
     }
+
+    String[] getWordsFromHtml(String url) throws IOException;
+
+    Map<String, Long> getWordsFrequencyFromHtml(String url) throws IOException;
 }

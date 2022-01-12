@@ -49,9 +49,13 @@ public class JsoupHTMLParseService implements HTMLParseService {
 
         for (String word :
                 data) {
-            if (word.isEmpty()) continue;
+            if (word.isEmpty()) {
+                continue;
+            }
 
-            if (word.chars().anyMatch(ch -> !Character.isAlphabetic(ch))) continue;
+            if (word.chars().anyMatch(ch -> !Character.isAlphabetic(ch))) {
+                continue;
+            }
 
             String normalizedString = word.toUpperCase();
 
